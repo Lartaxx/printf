@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_puthexa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daboyer <daboyer@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 12:07:01 by daboyer           #+#    #+#             */
-/*   Updated: 2023/03/01 13:42:08 by daboyer          ###   ########.fr       */
+/*   Created: 2023/03/01 13:41:01 by daboyer           #+#    #+#             */
+/*   Updated: 2023/03/01 13:41:51 by daboyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
+#include "printf.h"
 
-void	ft_putchar(char c);
+static void     ft_ptrhex(unsigned long long n, char *base)
+{
+    if (n >= 16)
+    {
+        ft_ptrhex(n / 16, base);
+        ft_ptrhex(n % 16, base);
+    }
+    else
+        ft_putchar(base[n]);
+}
 
-void	ft_putstr(char *str);
-
-void	ft_putnbr(int n);
-
-void	ft_putnbr_u(unsigned int n);
-
-void	ft_putnbr_base(int nbr, char *base);
-
-void	ft_puthexa(unsigned long long n, char *base);
-#endif
+void    ft_puthexa(unsigned long long n, char *base)
+{
+    ft_putstr("0x");
+    ft_ptrhex(n, base);
+}
