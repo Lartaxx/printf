@@ -6,7 +6,7 @@
 /*   By: daboyer <daboyer@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:01:01 by daboyer           #+#    #+#             */
-/*   Updated: 2023/03/01 13:46:56 by daboyer          ###   ########.fr       */
+/*   Updated: 2023/03/01 13:56:10 by daboyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 char	*ft_search_args(const char *str, va_list list)
 {
+	char	*format;
+
 	if (*str == 'c')
 		ft_putchar((char)va_arg(list, int));
 	else if (*str == 's')
@@ -27,7 +29,10 @@ char	*ft_search_args(const char *str, va_list list)
 	else if (*str == 'X')
 		ft_putnbr_base(va_arg(list, int), "0123456789ABCDEF");
 	else if (*str == 'p')
-		ft_puthexa((unsigned long long)va_arg(list, void *), "0123456789abcdef");
+	{
+		format = "0123456789abcdef";
+		ft_puthexa((unsigned long long)va_arg(list, void *), format);
+	}
 	else if (*str == '%')
 		ft_putchar('%');
 	else
@@ -54,10 +59,11 @@ int	ft_printf(const char *str, ...)
 	va_end(list);
 	return (0);
 }
-#include <stdio.h>
+// #include <stdio.h>
 
-int	main(void)
-{	
-	ft_printf("%X", 4779);
-	printf("\n%04X", 4779);
-}
+// int	main(void)
+// {
+// 	char	a = 'a';	
+// 	ft_printf("%p", &a);
+// 	printf("\n%p", &a);
+// }
