@@ -22,6 +22,27 @@ static char	*ft_readtext(const char *str)
 	return ((char *)str);
 }
 
+// Count the length of an integer
+static int	ft_intlen(int n)
+{
+	int	len;
+
+	len = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+	{
+		len++;
+		n *= -1;
+	}
+	while (n > 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
 static char	*ft_search_args(const char *str, va_list list)
 {
 	char	*format;
