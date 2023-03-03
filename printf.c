@@ -12,7 +12,17 @@
 
 #include "printf.h"
 
-char	*ft_search_args(const char *str, va_list list)
+static char	*ft_readtext(const char *str)
+{
+	while (*str && *str != '%')
+	{
+		ft_putchar(*str);
+		str++;
+	}
+	return ((char *)str);
+}
+
+static char	*ft_search_args(const char *str, va_list list)
 {
 	char	*format;
 
@@ -50,6 +60,8 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str == '%')
 			str = ft_search_args(str + 1, list);
+		else
+			str = ft_readtext(str);
 		if (!str)
 		{
 			va_end(list);
