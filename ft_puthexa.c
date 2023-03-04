@@ -6,7 +6,7 @@
 /*   By: daboyer <daboyer@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 13:41:01 by daboyer           #+#    #+#             */
-/*   Updated: 2023/03/04 20:18:39 by daboyer          ###   ########.fr       */
+/*   Updated: 2023/03/04 21:00:05 by daboyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_puthexa(unsigned long long int *num, char *base)
 {
-	int						i;
-	int						count;
-	unsigned long long int	nbr;
-	char			print[16];
+	int							i;
+	int							count;
+	unsigned long long int		nbr;
+	char						print[16];
 
 	if (!num)
 		return (ft_putstr("(nil)"));
