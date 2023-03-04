@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.c                                           :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daboyer <daboyer@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:01:01 by daboyer           #+#    #+#             */
-/*   Updated: 2023/03/04 19:25:45 by daboyer          ###   ########.fr       */
+/*   Updated: 2023/03/04 20:13:38 by daboyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static char	*ft_search_args(const char *str, va_list list, int *ret)
 	else if (*str == 'p')
 	{
 		format = "0123456789abcdef";
-		*ret += ft_puthexa((unsigned long long)va_arg(list, void *), format);
+		*ret += ft_puthexa(va_arg(list, void *), format);
 	}
 	else if (*str == '%')
 		*ret += ft_putchar('%');

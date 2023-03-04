@@ -6,7 +6,7 @@
 /*   By: daboyer <daboyer@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:07:01 by daboyer           #+#    #+#             */
-/*   Updated: 2023/03/04 19:26:35 by daboyer          ###   ########.fr       */
+/*   Updated: 2023/03/04 20:13:13 by daboyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int		ft_putnbr_u(unsigned int n);
 
 int		ft_putnbr_base(int nbr, char *base);
 
-int		ft_puthexa(unsigned long long n, char *base);
+int		ft_puthexa(unsigned long long int *num, char *base);
+
+int		ft_printf(const char *str, ...);
 #endif
