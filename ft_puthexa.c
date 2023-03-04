@@ -6,25 +6,36 @@
 /*   By: daboyer <daboyer@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 13:41:01 by daboyer           #+#    #+#             */
-/*   Updated: 2023/03/01 13:57:15 by daboyer          ###   ########.fr       */
+/*   Updated: 2023/03/04 19:15:31 by daboyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-static void	ft_ptrhex(unsigned long long n, char *base)
+static int	ft_ptrhex(unsigned long long n, char *base)
 {
+	int		count;
+
+	count = 0;
 	if (n >= 16)
 	{
-		ft_ptrhex(n / 16, base);
-		ft_ptrhex(n % 16, base);
+		count += ft_ptrhex(n / 16, base);
+		count += ft_ptrhex(n % 16, base);
 	}
 	else
+	{
 		ft_putchar(base[n]);
+		count++;
+	}
+	return (count);
 }
 
-void	ft_puthexa(unsigned long long n, char *base)
+int	ft_puthexa(unsigned long long n, char *base)
 {
-	ft_putstr("0x");
-	ft_ptrhex(n, base);
+	int		count;
+
+	count = 0;
+	count += ft_putstr("0x");
+	count += ft_ptrhex(n, base);
+	return (count);
 }

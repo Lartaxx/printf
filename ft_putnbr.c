@@ -3,38 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daboyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: daboyer <daboyer@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 13:22:09 by daboyer           #+#    #+#             */
-/*   Updated: 2023/02/22 13:23:23 by daboyer          ###   ########.fr       */
+/*   Updated: 2023/03/04 18:30:24 by daboyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void	ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
-	int	i;
-	int	number[10];
+	unsigned int	nb;
+	int				len;
 
-	i = 0;
-	if (n == 0)
-		ft_putchar('0');
+	len = 1;
 	if (n < 0)
 	{
 		ft_putchar('-');
-		if (n == -2147483648)
-		{
-			ft_putstr("2147483648");
-			return ;
-		}
-		n = -n;
+		len++;
+		nb = -n;
 	}
-	while (n > 0)
+	else
+		nb = n;
+	if (nb >= 10)
 	{
-		number[i++] = n % 10;
-		n /= 10;
+		len += ft_putnbr(nb / 10);
+		ft_putchar(nb % 10 + '0');
 	}
-	while (--i >= 0)
-		ft_putchar(('0' + number[i]));
+	else
+		ft_putchar(nb + '0');
+	return (len);
 }
