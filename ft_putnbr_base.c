@@ -6,7 +6,7 @@
 /*   By: daboyer <daboyer@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 13:23:10 by daboyer           #+#    #+#             */
-/*   Updated: 2023/03/04 19:22:53 by daboyer          ###   ########.fr       */
+/*   Updated: 2023/03/06 09:08:35 by daboyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,7 @@ int	ft_putnbr_base(int nbr, char *base)
 	if (base_len <= 1)
 		return (0);
 	count = 0;
-	if (nbr < 0)
-	{
-		ft_putchar('-');
-		count++;
-		nb = -nbr;
-	}
-	else
-		nb = nbr;
+	nb = nbr;
 	rec(nb, base, base_len, &count);
 	return (count);
 }

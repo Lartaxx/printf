@@ -6,11 +6,13 @@
 /*   By: daboyer <daboyer@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:01:01 by daboyer           #+#    #+#             */
-/*   Updated: 2023/03/04 20:13:38 by daboyer          ###   ########.fr       */
+/*   Updated: 2023/03/06 09:08:59 by daboyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+
+#include <stdio.h>
 
 static char	*ft_readtext(const char *str, int *ret)
 {
